@@ -2,12 +2,12 @@
   {{#each select.selected as |opt idx|}}
     <li class="ember-power-select-multiple-option {{if opt.disabled "ember-power-select-multiple-option--disabled"}}">
       {{#unless select.disabled }}
-        <span role="button"
+        <button
           aria-label="remove element"
-          class="ember-power-select-multiple-remove-btn"
+          class="ember-power-select-multiple-remove-btn btn btn-link text-white btn-sm"
           data-selected-index={{idx}}>
           &times;
-        </span>
+        </button>
       {{/unless}}
       {{#if selectedItemComponent}}
         {{component selectedItemComponent extra=(readonly extra) option=(readonly opt) select=(readonly select)}}
@@ -21,7 +21,7 @@
     {{/if}}
   {{/each}}
   {{#if searchEnabled}}
-  <li>
+  <li class="list-unstyled">
     <input type="search" class="ember-power-select-trigger-multiple-input"
       autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
       id="ember-power-select-trigger-multiple-input-{{select.uniqueId}}"
