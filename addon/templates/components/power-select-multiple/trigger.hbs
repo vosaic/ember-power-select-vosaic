@@ -21,6 +21,7 @@
     {{/if}}
   {{/each}}
   {{#if searchEnabled}}
+  <li>
     <input type="search" class="ember-power-select-trigger-multiple-input"
       autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
       id="ember-power-select-trigger-multiple-input-{{select.uniqueId}}"
@@ -34,6 +35,7 @@
       onblur={{onBlur}}
       tabindex={{tabindex}}
       onkeydown={{action "onKeydown"}}>
+    </li>
   {{/if}}
 </ul>
 <span class="ember-power-select-status-icon"></span>
