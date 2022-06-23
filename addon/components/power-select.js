@@ -87,6 +87,7 @@ export default Component.extend({
   defaultHighlighted: fallbackIfUndefined(defaultHighlighted),
   typeAheadMatcher: fallbackIfUndefined(defaultTypeAheadMatcher),
   highlightOnHover: fallbackIfUndefined(true),
+  highlightedIndex: '0',
 
   afterOptionsComponent: fallbackIfUndefined(null),
   beforeOptionsComponent: fallbackIfUndefined('power-select/before-options'),
@@ -266,6 +267,9 @@ export default Component.extend({
       if (option && get(option, 'disabled')) {
         return;
       }
+      let publicAPI = this.get('publicAPI');
+      let index = indexOfOption(publicAPI.results, option);
+      this.set('highlightedIndex', index);
       this.updateState({ highlighted: option });
     },
 

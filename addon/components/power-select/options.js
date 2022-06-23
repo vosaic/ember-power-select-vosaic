@@ -28,7 +28,7 @@ export default Component.extend({
   isTouchDevice,
   layout,
   tagName: 'ul',
-  attributeBindings: ['role', 'aria-controls'],
+  attributeBindings: ['role', 'aria-controls', 'aria-label'],
   role: 'listbox',
 
   // Lifecycle hooks
@@ -51,6 +51,7 @@ export default Component.extend({
     this.element.addEventListener('mouseup', (e) => findOptionAndPerform(this.get('select.actions.choose'), e));
     if (this.get('highlightOnHover')) {
       this.element.addEventListener('mouseover', (e) => findOptionAndPerform(this.get('select.actions.highlight'), e));
+      this.element.addEventListener('keyup', (e) => findOptionAndPerform(this.get('select.actions.highlight'), e));
     }
     if (this.get('isTouchDevice')) {
       this._addTouchEvents();
@@ -62,9 +63,11 @@ export default Component.extend({
   },
 
   // CPs
-  'aria-controls': computed('select.uniqueId', function() {
-    return `ember-power-select-trigger-${this.get('select.uniqueId')}`;
-  }),
+  // 'aria-controls': computed('select.uniqueId', function() {
+  //   return `ember-power-select-trigger-${this.get('select.uniqueId')}`;
+  // }),
+
+  'aria-label': "Search Results",
 
   // Methods
   _addTouchEvents() {

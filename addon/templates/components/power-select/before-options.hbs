@@ -6,8 +6,9 @@
       role="combobox"
       class="ember-power-select-search-input"
       value={{select.searchText}}
+      aria-activedescendant={{ariaActiveDescendant}}
       aria-controls={{listboxId}}
-      aria-expanded="true"
+      aria-haspopup="listbox"
       placeholder={{searchPlaceholder}}
       oninput={{onInput}}
       onfocus={{onFocus}}

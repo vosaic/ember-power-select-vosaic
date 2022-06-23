@@ -83,7 +83,6 @@ export default Component.extend({
       }
       this.get('select').actions.open(e);
     },
-
     onKeydown(e) {
       let { onKeydown, select } = this.getProperties('onKeydown', 'select');
       if (onKeydown && onKeydown(e) === false) {

@@ -1,6 +1,9 @@
-<ul id="ember-power-select-multiple-options-{{select.uniqueId}}" class="ember-power-select-multiple-options">
+<ul id="ember-power-select-multiple-options-{{select.uniqueId}}"
+    aria-activedescendant={{if (and select.isOpen (not searchEnabled)) ariaActiveDescendant}}
+    class="ember-power-select-multiple-options"
+   >
   {{#each select.selected as |opt idx|}}
-    <li class="ember-power-select-multiple-option {{if opt.disabled "ember-power-select-multiple-option--disabled"}}">
+    <li id="option-{{idx}}" class="ember-power-select-multiple-option {{if opt.disabled "ember-power-select-multiple-option--disabled"}}">
       {{#unless select.disabled }}
         <span 
           role="button"
@@ -20,12 +23,22 @@
       <span class="ember-power-select-placeholder">{{placeholder}}</span>
     {{/if}}
   {{/each}}
-  {{#if searchEnabled}}
-  <li class="list-unstyled">
-    <input type="search" class="ember-power-select-trigger-multiple-input"
-      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+</ul>
+   {{#if searchEnabled}}
+  {{!-- <li class="list-unstyled"> --}}
+    <input type="search" 
+      role="combobox"
+      class="ember-power-select-trigger-multiple-input"
+      aria-activedescendant={{if select.isOpen ariaActiveDescendant}}
+      aria-haspopup="listbox"
+      aria-expanded={{if select.isOpen "true" "false"}}
+      autocomplete="off" 
+      autocorrect="off" 
+      autocapitalize="off" 
+      spellcheck="false"
       id="ember-power-select-trigger-multiple-input-{{select.uniqueId}}"
       value={{select.searchText}}
+      aria-controls="ember-power-select-multiple-options-{{select.uniqueId}}"
       style={{triggerMultipleInputStyle}}
       placeholder={{maybePlaceholder}}
       disabled={{select.disabled}}
@@ -34,7 +47,6 @@
       onblur={{onBlur}}
       tabindex={{tabindex}}
       onkeydown={{action "onKeydown"}}>
-    </li>
+    {{!-- </li> --}}
   {{/if}}
-</ul>
 <span class="ember-power-select-status-icon"></span>
