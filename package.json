@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/cibernox/ember-power-select.git"
+    "url": "git+https://github.com/vosaic/ember-power-select-vosaic.git"
   },
   "license": "MIT",
   "author": {
