@@ -47,7 +47,7 @@
       searchField=(readonly searchField)
       select=(readonly publicAPI)
       selectedItemComponent=(readonly selectedItemComponent)
-      ariaActiveDescendant=(concat publicAPI.uniqueId "-" (readonly highlightedIndex))
+      ariaActiveDescendant=(concat publicAPI.uniqueId "-" readonly highlightedIndex)
       as |opt term|}}
       {{yield opt term}}
     {{/component}}
@@ -58,7 +58,7 @@
       animationEnabled=(readonly animationEnabled)
       extra=(readonly extra)
       listboxId=(readonly optionsId)
-      ariaActiveDescendant=(concat publicAPI.uniqueId "-" (readonly highlightedIndex))
+      ariaActiveDescendant=(concat publicAPI.uniqueId "-" readonly highlightedIndex)
       onInput=(action "onInput")
       onKeydown=(action "onKeydown")
       searchEnabled=(readonly searchEnabled)
