@@ -3,7 +3,7 @@
     class="ember-power-select-multiple-options"
    >
   {{#each select.selected as |opt idx|}}
-    <li id="option-{{idx}}" class="ember-power-select-multiple-option {{if opt.disabled "ember-power-select-multiple-option--disabled"}}">
+    <li id="option-{{idx}}-{{select.uniqueId}}" class="ember-power-select-multiple-option {{if opt.disabled "ember-power-select-multiple-option--disabled"}}">
       {{#unless select.disabled }}
         <span 
           role="button"
